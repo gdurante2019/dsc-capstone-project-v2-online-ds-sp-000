@@ -1,7 +1,7 @@
 
 # Capstone Project:  Predicting Lab-of-Origin for DNA Plasmids
 
-![image.png](attachment:image.png)
+![plasmid_dna_model.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/plasmid_dna_model.jpg)
 
 ## Challenge Overview
 
@@ -11,20 +11,21 @@ Plasmids have been used for decades in molecular cloning applications and are cr
 This project is focused on exploring various modeling and algorithm development techniques to predict the labs-of-origin for DNA constructs called plasmids.  The problem statement and data come from a current data science competition, the Genetic Engineering Attribution Challenge, sponsored by altLabs and hosted by DrivenData.  
 
 ### What are Plasmids?
+
+![Plasmid_image_bacterium.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/Plasmid_image_bacterium.jpg)
+
 While most people have heard of chromosomes, ‘plasmid’ isn’t exactly a household word. As opposed to chromosomes, which contain large amounts of DNA in a tightly coiled superstructure, plasmids are much smaller circular DNA constructs that contain only the ‘bare bones’ DNA needed to accomplish certain tasks. Often used in bacteria to perform a wide range of research or production activities, plasmids are a critical tool in molecular cloning, with well-characterized performance in various lab conditions make safe, reliable, and replicable research and production activities possible.
 
 The quote below is from the DrivenData blog post "Benchmark" at https://www.drivendata.co/blog/genetic-attribution-benchmark/:
 
 _The DNA for this challenge comes from an online dataset of plasmids. Plasmids are small, circular DNA molecules that replicate independently from chromosomes. Plasmids used commonly in research come from cells in mammals, bacteria, worms, yeast, and insects. Plasmid information can be uploaded and accessed digitally thanks to AddGene, a large, non-profit plasmid repository based in Watertown, MA._
 
-![image.png](attachment:image.png)
-
 ## Why I Chose this Project for my Capstone
 I picked this project for my capstone primarily for three reasons:  1) it ties into some of my professional interests and educational knowledge; 2) it’s a fairly unique problem, which captured my interest; and 3) I figured it would be easier than launching into image recognition for my capstone, which I was interested in doing but had not yet had much experience with it.  
 
 On that last point, I think I was mistaken!  Even so, choosing this problem for my capstone project challenged me to expand my knowledge about neural networks in a way that I probably wouldn’t have otherwise.  The way DNA encodes information is different than either images or language, so I had to put a lot of thought into what DNA’s unique information encoding format means for selecting a modeling approach, and a lot of effort into learning about the kinds of models that would be capable of identifying important sequences in an unsupervised manner and being able to tie specific sequences back to specific labs.
 
-_Image courtesy of altLabs website (altlabs.tech)_![image.png](attachment:image.png)
+_Image courtesy of altLabs website (altlabs.tech)_![al-green-homepage.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/al-green-homepage.jpg)
 
 # Phase I:  Level-Setting--Obtaining and Exploring Data per DrivenData Guidance 
 
@@ -50,7 +51,7 @@ There are 41 columns in this dataset. Each row corresponds to a plasmid DNA sequ
 
 
 
-_Image from DrivenData Genetic Engineering Attribution Challenge website_![image.png](attachment:image.png)
+_Image from DrivenData Genetic Engineering Attribution Challenge website_![al-ch3-credit-cdc-unsplash.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/al-ch3-credit-cdc-unsplash.jpg)
 
 ## Basic Data Exploration 
 
@@ -90,19 +91,6 @@ train_values
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -873,19 +861,6 @@ train_values.iloc[:, 1:].apply(pd.value_counts)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1046,19 +1021,6 @@ test_values
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1660,19 +1622,6 @@ train_labels.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10914,19 +10863,6 @@ lab_ids.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11406,19 +11342,6 @@ ngram_features
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13055,19 +12978,6 @@ all_features.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14374,19 +14284,6 @@ train_values.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14712,19 +14609,6 @@ X.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -15038,19 +14922,6 @@ train_labels.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -24366,19 +24237,6 @@ ngram_features
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -26076,19 +25934,6 @@ all_features.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -27526,19 +27371,6 @@ add_seqs_ngram_features
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -28238,19 +28070,6 @@ all_features_sel_seqs.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -29037,19 +28856,6 @@ train_values
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -29629,19 +29435,6 @@ test_values
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -30221,19 +30014,6 @@ train_labels
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -47377,19 +47157,6 @@ lab_ids.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -47446,19 +47213,6 @@ train_values_df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -48058,19 +47812,6 @@ train_values_labels
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -48718,19 +48459,6 @@ df_subset_200
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -48829,19 +48557,6 @@ seqs_subset_200
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -48914,19 +48629,6 @@ labs_subset_200
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -49030,19 +48732,6 @@ seqs_subset_200
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -49295,19 +48984,6 @@ labs_subset_200
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -50109,19 +49785,6 @@ seqs_subset_200.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -51099,19 +50762,6 @@ seqs_subset_200.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -51689,19 +51339,6 @@ seqs_subset_200.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
