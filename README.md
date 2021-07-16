@@ -1,8 +1,6 @@
 
 # Capstone Project:  Predicting Lab-of-Origin for DNA Plasmids
 
-![plasmid_dna_model.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/plasmid_dna_model.jpg)
-
 ## Challenge Overview
 
 ### Problem Statement
@@ -16,8 +14,6 @@ While most people have heard of chromosomes, ‘plasmid’ isn’t exactly a hou
 The quote below is from the DrivenData blog post "Benchmark" at https://www.drivendata.co/blog/genetic-attribution-benchmark/:
 
 _The DNA for this challenge comes from an online dataset of plasmids. Plasmids are small, circular DNA molecules that replicate independently from chromosomes. Plasmids used commonly in research come from cells in mammals, bacteria, worms, yeast, and insects. Plasmid information can be uploaded and accessed digitally thanks to AddGene, a large, non-profit plasmid repository based in Watertown, MA._
-
-![Plasmid_image_bacterium.jpg](https://github.com/gdurante2019/Flatiron_Capstone/blob/main/Plasmid_image_bacterium.jpg)
 
 ## Why I Chose this Project for my Capstone
 I picked this project for my capstone primarily for three reasons:  1) it ties into some of my professional interests and educational knowledge; 2) it’s a fairly unique problem, which captured my interest; and 3) I figured it would be easier than launching into image recognition for my capstone, which I was interested in doing but had not yet had much experience with it.  
